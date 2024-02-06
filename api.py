@@ -25,9 +25,15 @@ async def prompt(prompt:PromptSchema):
             "success": False,
             "message": "Please enter a prompt"
         }
-    prompt_response = await openai_service.prompt(prompt.prompt)
-    return {
-        "success": True,
-        "data": prompt_response
-    }
+    try:
+        prompt_response = await openai_service.prompt(prompt.prompt)
+        return {
+            "success": True,
+            "data": prompt_response
+        }
+    except Exception as e:
+        return {
+            "success":False,
+            "message": str(e)
+        }
 

@@ -28,12 +28,6 @@ class OpenAIService:
                 ],
             )
             
-            return {
-                "success": True,
-                "data": response.choices[0].message.content
-            }
+            return response.choices[0].message.content
         except Exception as e:
-            return {
-                "success": False,
-                "data": e.message
-            }
+            return str(e)
