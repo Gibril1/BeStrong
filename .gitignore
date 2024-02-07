@@ -3,3 +3,5 @@ __pycache__/
 */__pycache__/
 
 .env
+me.session
+me.session-journal
